@@ -10,6 +10,6 @@ mkdir -p /mnt/syzdisk /mnt/corrupt
 
 # If your guest HAS gcc:
 cp /mnt/host/repro.c /root/
-gcc -O2 -static -pthread /root/repro.c -o /root/repro
+gcc -O2 -pthread /root/repro.c -o /root/repro
 /root/repro
 ```
