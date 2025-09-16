@@ -18,5 +18,6 @@ qemu-system-x86_64 -m 2048 -smp 2 -cpu host -enable-kvm -nographic \
   -drive file="$SYZDISK",if=ide,format=raw,index=1 \
   -drive file="$CORRUPT",if=ide,format=raw,index=2 \
   -netdev user,id=net0,hostfwd=tcp:127.0.0.1:10022-:22 \
+  -virtfs "local,id=fs0,path=$PWD,security_model=none,mount_tag=hostshare" \
   -device e1000,netdev=net0 -s
 
