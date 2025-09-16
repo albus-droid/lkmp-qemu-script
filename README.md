@@ -1,5 +1,5 @@
 ## RUN THESE INSIDE YOUR GUEST VM
-# mount host folder (read-only for safety)
+```bash # mount host folder (read-only for safety)
 mkdir -p /mnt/host
 mount -t 9p -o ro,trans=virtio,version=9p2000.L hostshare /mnt/host
 
@@ -12,3 +12,4 @@ mkdir -p /mnt/syzdisk /mnt/corrupt
 cp /mnt/host/repro.c /root/
 gcc -O2 -static -pthread /root/repro.c -o /root/repro
 /root/repro
+```
