@@ -26,4 +26,32 @@ yes "" | make -j"$(nproc)" LL(nproc)" LLVM=1 vmlinux bzImage
 ## CLEANING SOURCES
 ```bash
 make clean
-make mrproper```
+make mrproper
+```
+## TOOLS
+### TRACERS
+```bash
+# Enable kprobes
+scripts/config -e CONFIG_KPROBES
+scripts/config -e CONFIG_KPROBE_EVENTS
+scripts/config -e CONFIG_UPROBE_EVENTS
+scripts/config -e CONFIG_KPROBE_EVENTS_ON_NOTRACE
+scripts/config -e CONFIG_OPTPROBES
+
+# Also enable related tracing features
+scripts/config -e CONFIG_DYNAMIC_FTRACE
+scripts/config -e CONFIG_DYNAMIC_FTRACE_WITH_REGS
+scripts/config -e CONFIG_FUNCTION_TRACER
+scripts/config -e CONFIG_FUNCTION_GRAPH_TRACER
+scripts/config -e CONFIG_STACK_TRACER
+
+# Enable BPF support (useful for bpftrace later)
+scripts/config -e CONFIG_BPF
+scripts/config -e CONFIG_BPF_SYSCALL
+scripts/config -e CONFIG_BPF_JIT
+scripts/config -e CONFIG_HAVE_EBPF_JIT
+
+# Verify changes
+scripts/config --state CONFIG_KPROBES
+scripts/config --state CONFIG_KPROBE_EVENTS
+```
