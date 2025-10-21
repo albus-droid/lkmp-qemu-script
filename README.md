@@ -13,3 +13,17 @@ cp /mnt/host/repro.c /root/
 gcc -O2 -pthread /root/repro.c -o /root/repro
 /root/repro
 ```
+## COMPILING THE KERNEL
+### WITH GCC
+```bash
+yes "" | make oldconfig
+make -j"$(nproc)" bzImage vmlinux
+```
+### WITH CLANG
+```bash
+yes "" | make -j"$(nproc)" LL(nproc)" LLVM=1 vmlinux bzImage
+```
+## CLEANING SOURCES
+```bash
+make clean
+make mrproper```
