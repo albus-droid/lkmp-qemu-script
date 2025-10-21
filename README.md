@@ -1,7 +1,7 @@
 ## RUN THESE INSIDE YOUR GUEST VM
 ```bash # mount host folder (read-only for safety)
 mkdir -p /mnt/host
-mount -t 9p -o ro,trans=virtio,version=9p2000.L hostshare /mnt/host
+mount -t 9p -o trans=virtio,version=9p2000.L,rw hostshare /mnt/host
 
 # (optional) mount the syz "disk image" and corrupt fs
 mkdir -p /mnt/syzdisk /mnt/corrupt
