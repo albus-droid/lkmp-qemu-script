@@ -21,7 +21,7 @@ make -j"$(nproc)" bzImage vmlinux
 ```
 ### WITH CLANG
 ```bash
-yes "" | make -j"$(nproc)" LL(nproc)" LLVM=1 vmlinux bzImage
+yes "" | make -j"$(nproc)" LLVM=1 vmlinux bzImage
 ```
 ## CLEANING SOURCES
 ```bash
