@@ -1,5 +1,6 @@
 ## CREATING BASE IMAGE
 [create-image.sh](https://android.googlesource.com/platform/external/syzkaller/+/HEAD/tools/create-image.sh)
+or direct download from [here](https://storage.googleapis.com/syzkaller/stretch.img)
 ## RUN THESE INSIDE YOUR GUEST VM
 ```bash # mount host folder (read-only for safety)
 mkdir -p /mnt/host
