@@ -27,11 +27,11 @@ gcc -O2 -pthread /root/repro.c -o /root/repro
 
 ### WITH GCC
 ```bash
-make -j"$(nproc)" bzImage vmlinux
+yes "" | make -j"$(nproc)" bzImage vmlinux
 ```
 ### WITH CLANG
 ```bash
-make -j"$(nproc)" LLVM=1 vmlinux bzImage
+yes "" | make -j"$(nproc)" LLVM=1 vmlinux bzImage
 ```
 ## CLEANING SOURCES
 ```bash
@@ -72,4 +72,4 @@ scripts/config --state CONFIG_KPROBE_EVENTS
 scripts/config --state CONFIG_FUNCTION_TRACER
 ```
 ## TESTING
-For a full test compile with `make allmodconfig` or `make allyesconfig`. If you want to go lighter, with the existing `.config` run `make localmodconfig` or `make localyesconfig`
+For a full test compile with `make allmodconfig` or `make allyesconfig`. If you want to go lighter, with the existing `.config` run `make olddefconfig`, and cherry pick options using `make menuconfig`.
