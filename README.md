@@ -17,14 +17,21 @@ gcc -O2 -pthread /root/repro.c -o /root/repro
 /root/repro
 ```
 ## COMPILING THE KERNEL
+### SETTING CONFIGS
+| Command             | Meaning                                                             |
+| ------------------- | ------------------------------------------------------------------- |
+| `make defconfig`    | Load the architecture’s default config (most common starting point) |
+| `make oldconfig`    | Update an old `.config` and ask for new options                     |
+| `make olddefconfig` | Update an old config and **auto-accept defaults** (no questions)    |
+| `make tinyconfig`   | Build the absolute smallest kernel possible                         |
+
 ### WITH GCC
 ```bash
-yes "" | make oldconfig
 make -j"$(nproc)" bzImage vmlinux
 ```
 ### WITH CLANG
 ```bash
-yes "" | make -j"$(nproc)" LLVM=1 vmlinux bzImage
+make -j"$(nproc)" LLVM=1 vmlinux bzImage
 ```
 ## CLEANING SOURCES
 ```bash
