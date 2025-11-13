@@ -72,4 +72,4 @@ scripts/config --state CONFIG_KPROBE_EVENTS
 scripts/config --state CONFIG_FUNCTION_TRACER
 ```
 ## TESTING
-For a full test compile with `make allmodconfig` or `make allyesconfig`. If you want to go lighter, with the existing `.config` run `make olddefconfig`.
+For a full test compile with `make allmodconfig` or `make allyesconfig`. If you want to go lighter, with the existing `.config` run `make localmodconfig` or `make localyesconfig`
